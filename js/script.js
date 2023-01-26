@@ -422,20 +422,36 @@ if (loginClose.length > 0) {
 const input = document.querySelector('.form-login__button')
 const value = document.querySelector('.form-login__email')
 const forms = document.querySelector('.form-login')
+const nameHead = document.querySelector('.header__container')
 input.addEventListener("click", (e) => {
 	e.preventDefault();
 	const curentPopu = document.getElementById('login')
 	if (!(document.cookie = `${value.value}=login`)) {
-		if (!(value.value === "")) {
-			document.cookie = `${value.value}=login`
+		if (value.value === "") {
 			popupClose(el.closest('.login-popup'))
+		} else {
+			document.cookie = `${value.value}=login`
+			let cardLogin = `<div class="header__card">Здравствуйте:<span>${value.value}</span></div>`
+			popupClose(el.closest('.login-popup'))
+			nameHead.innerHTML += cardLogin
 		}
 	} else {
-		popupClose(curentPopu)
-		forms.reset()
+		if (value.value === "") {
+			popupClose(el.closest('.login-popup'))
+		} else {
+			let cardLogin = `<div class="header__card">Здравствуйте:<span>${value.value}</span></div>`
+			nameHead.innerHTML += cardLogin
+			popupClose(curentPopu)
+			forms.reset()
+		}
 	}
 })
-
+window.onunload = function () {
+	const check = document.getElementsByClassName('header__card')
+	if (check) {
+		check.parentNode.removeChild(check);
+	}
+}
 
 const change = document.querySelector('.card-popup__button_put')
 change.addEventListener('click', function (e) {

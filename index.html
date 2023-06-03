@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cats</title>
+    <script src="js/api.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="header" class="header lock-padding">
+        <div class="header__container">
+          <a href="#cats" class="header__logo">
+            <img src="images/icons/paw-solid.svg" alt="heand" />
+            <p>Милые котики</p>
+          </a>
+          <a href="#login" class="header__login"> Войти </a>
+          <div class="header__box"></div>
+          <a href="#popup" class="header__button popup-link">
+            <img src="images/icons/icon.svg" alt="plus" />
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <section class="cats">
+          <div class="cats__container">
+            <div class="cats__cards"></div>
+          </div>
+          <div class="cats__image _ibg">
+            <img src="images/icons/cato.jpg" alt="cover" />
+          </div>
+        </section>
+      </div>
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__text">© Нуриев Руслан 2023</div>
+          <div class="footer__social">
+            <a target="_blank" href="https://telegram.org"
+              ><img src="images/icons/6.png" alt="github"
+            /></a>
+            <a target="_blank" href="https://vk.com"
+              ><img src="images/icons/2.svg" alt="vk"
+            /></a>
+            <a target="_blank" href="https://github.com"
+              ><img src="images/icons/3.svg" alt="telegram"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="popup" class="popup">
+      <div class="popup__body">
+        <div class="popup__content">
+          <a href="##" class="popup__close close-popup"
+            ><img src="images/icons/x.svg" alt="x"
+          /></a>
+          <div class="popup__title">Добавить питомца</div>
+          <form action="" class="popup__form">
+            <div class="popup__column">
+              <div class="popup__image"></div>
+              <div class="popup__links">
+                <input
+                  autocomplete="off"
+                  name="image"
+                  type="text"
+                  placeholder="Ссылка на фото"
+                  class="popup__link"
+                />
+                <span id="clearButton" class="clearButton">&#10006;</span>
+              </div>
+            </div>
+            <div class="popup__column">
+              <input
+                autocomplete="off"
+                type="number"
+                name="id"
+                min="1"
+                required
+                placeholder="id"
+                class="popup__id"
+              />
+              <input
+                autocomplete="off"
+                type="text"
+                name="name"
+                required
+                placeholder="Имя"
+                class="popup__name"
+              />
+              <textarea
+                autocomplete="off"
+                placeholder="Описание"
+                name="description"
+                class="popup__area"
+              ></textarea>
+            </div>
+            <div class="popup__column">
+              <input
+                autocomplete="off"
+                type="number"
+                name="age"
+                placeholder="Возраст"
+                class="popup__age"
+              />
+              <input
+                autocomplete="off"
+                type="number"
+                min="0"
+                max="10"
+                name="rate"
+                placeholder="Рейтинг (0-10)"
+                class="popup__raiting"
+              />
+              <div class="popup__checkbox">
+                Любимчик<input
+                  type="checkbox"
+                  name="favourite"
+                  class="popup__pet"
+                />
+              </div>
+              <button class="popup__button" type="submit">
+                Добавить котёнка
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="card-popup" class="card-popup">
+      <div class="card-popup__body">
+        <div class="card-popup__content">
+          <a href="##" class="card-popup__close close-card-popup"
+            ><img src="images/icons/x.svg" alt="x"
+          /></a>
+          <div class="card-popup__title">О коте</div>
+          <div class="card-popup__box">
+            <div class="card-popup__column">
+              <div class="card-popup__image"></div>
+              <div class="card-popup__name">Кличка:<span></span></div>
+              <div class="card-popup__age">Возраст:<span></span></div>
+            </div>
+            <div class="card-popup__column">
+              <div class="card-popup__description">
+                О коте: <br /><span></span>
+              </div>
+              <div class="card-popup__raiting">Рейтинг: <span></span></div>
+              <div class="card-popup__like">В почёте:<span></span></div>
+            </div>
+            <div class="card-popup__column">
+              <a href="#popup-change" class="card-popup__button_put"
+                >Изменить котёнка</a
+              >
+              <a href="#" class="card-popup__button_del">Удалить котёнка</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cats" class="cats-popup">
+      <div class="cats-popup__body">
+        <div class="cats-popup__content">
+          <a href="##" class="cats-popup__close close-card-popup"
+            ><img src="images/icons/x.svg" alt="x"
+          /></a>
+          <div class="cats-popup__title">Список котов</div>
+          <div class="cats-popup__box"></div>
+        </div>
+      </div>
+    </div>
+    <div id="login" class="login-popup">
+      <div class="login-popup__body">
+        <div class="login-popup__content">
+          <a href="##" class="login-popup__close close-card-popup"
+            ><img src="images/icons/x.svg" alt="x"
+          /></a>
+          <p class="login-popup__text">Авторизация</p>
+          <form class="login-popup__form form-login" action="#" method="post">
+            <label>Логин</label>
+            <input
+              type="email"
+              name="form-login__email"
+              placeholder="Введите Ваш имейл"
+              class="form-login__email"
+              required
+            />
+            <label>Пароль</label>
+            <input
+              type="password"
+              class="form-login__password"
+              name="auth_pass"
+              placeholder="Введите пароль"
+              required
+            />
+            <button
+              class="form-login__button"
+              type="submit"
+              name="form-login-submit"
+            >
+              Войти
+            </button>
+          </form>
+          <div class="login__image _ibg">
+            <img src="images/icons/cato.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-change" class="popup-change">
+      <div class="popup-change__body">
+        <div class="popup-change__content">
+          <a href="#" class="popup-change__close close-change-popup"
+            ><img src="images/icons/x.svg" alt="x"
+          /></a>
+          <div class="popup-change__title">Изменить питомца</div>
+          <form action="" class="popup-change__form">
+            <div class="popup-change__column">
+              <div class="popup-change__image"></div>
+              <div class="popup-change__links">
+                <input
+                  autocomplete="off"
+                  name="img_link"
+                  type="text"
+                  placeholder="Ссылка на фото"
+                  class="popup-change__link"
+                />
+                <span id="clearButtons" class="clearButtons">&#10006;</span>
+              </div>
+            </div>
+            <div class="popup-change__column">
+              <input
+                autocomplete="off"
+                type="text"
+                name="name"
+                required
+                placeholder="Имя"
+                class="popup-change__name"
+              />
+              <textarea
+                autocomplete="off"
+                placeholder="Описание"
+                name="description"
+                class="popup-change__area"
+              ></textarea>
+            </div>
+            <div class="popup-change__column">
+              <input
+                autocomplete="off"
+                type="number"
+                name="age"
+                placeholder="Возраст"
+                class="popup-change__age"
+              />
+              <input
+                autocomplete="off"
+                type="number"
+                min="0"
+                max="10"
+                name="rate"
+                placeholder="Рейтинг (0-10)"
+                class="popup-change__raiting"
+              />
+              <div class="popup-change__checkbox">
+                Любимчик<input
+                  type="checkbox"
+                  name="favourite"
+                  class="popup-change__pet"
+                />
+              </div>
+              <button class="popup-change__button" type="submit">
+                Изменить котёнка
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
